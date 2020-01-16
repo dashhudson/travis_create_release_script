@@ -54,7 +54,7 @@ def tag_release(url,tag,name,message,object_SHA):
     if response.status_code == 201:
         return response
     else:
-        print("\nResponse: "+ str(response))
+        print("\nResponse: "+ str(response.content))
         raise Exception("Can't tag release",response)
 
 def increase_tag_number(tags):
