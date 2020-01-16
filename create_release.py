@@ -50,7 +50,7 @@ def tag_release(url,tag,name,message,object_SHA):
     print("\nHeader: " + str(headers))
     print("\nURL: " + str(url))
 
-    response = requests.post(url, headers=headers, data=json.dumps(payload))
+    #response = requests.post(url, headers=headers, data=json.dumps(payload))
     if response.status_code == 201:
         return response
     else:
