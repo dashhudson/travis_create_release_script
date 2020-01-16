@@ -22,9 +22,11 @@ def get_last_release_tags(url):
         m=re.findall('\d+',newest)
         if m:
 
-            print(str(m[0]))
-            print(str(m[1]))
-            print(str(m[2]))
+            print("response: " + str(response))
+            print("newest: " + str(newest))
+            print("v1: " + str(m[0]))
+            print("v2: " + str(m[1]))
+            print("v3: " + str(m[2]))
 
             return [int(m[0]),int(m[1]),int(m[2])]
         raise Exception("Last release Tag not in proper format of vX.X.X")
