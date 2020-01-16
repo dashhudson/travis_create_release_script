@@ -46,15 +46,15 @@ def tag_release(url,tag,name,message,object_SHA):
         'type': 'commit'
     }
 
-    print("Payload: " + str(payload))
-    print("Header: " + str(headers))
-    print("URL: " + str(url))
+    print("\nPayload: " + str(payload))
+    print("\nHeader: " + str(headers))
+    print("\nURL: " + str(url))
 
     response = requests.post(url, headers=headers, data=json.dumps(payload))
     if response.status_code == 201:
         return response
     else:
-        print("Response: "+ str(response))
+        print("\nResponse: "+ str(response))
         raise Exception("Can't tag release",response)
 
 def increase_tag_number(tags):
