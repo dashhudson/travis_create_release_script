@@ -28,7 +28,9 @@ echo "This app's veradoce ID: "$APP_ID
 # zip all .py .js .vue files except those in /tests/ or /__tests__/
 # TODO: May be useful to implement a `.veracodeignore` or something similar to allow
 #       developers to specify files that shouldn't be scanned.
-zip -R veracode_submission.zip '*.py' '*.js' '*.vue' 'requirements.txt' 'Pipfile.lock' -x /**\*tests/**\* /**\*__tests__/**\* /**\*node_modules/**\* /**\*cypress/**\*
+zip -R veracode_submission.zip \
+                '*.py' '*.js' '*.vue' 'requirements.txt' 'package-lock.json' 'Pipfile.lock' \
+                -x /**\*tests/**\* /**\*__tests__/**\* /**\*node_modules/**\* /**\*cypress/**\*
 
 echo "Uploading file"
 http --ignore-stdin --auth-type=veracode_hmac -f "https://analysiscenter.veracode.com/api/5.0/uploadfile.do" "app_id==$APP_ID" "file@veracode_submission.zip"
