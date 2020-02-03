@@ -29,7 +29,7 @@ echo "This app's veradoce ID: "$APP_ID
 # TODO: May be useful to implement a `.veracodeignore` or something similar to allow
 #       developers to specify files that shouldn't be scanned.
 zip -R veracode_submission.zip \
-                '*.py' '*.js' '*.vue' 'requirements.txt' 'package-lock.json' 'Pipfile.lock' \
+                '*.py' '*.js' '*.vue' 'requirements.txt' 'package-lock.json' 'Pipfile.lock' 'Pipfile' \
                 -x /**\*tests/**\* /**\*__tests__/**\* /**\*node_modules/**\* /**\*cypress/**\*
 
 echo "Uploading file"
