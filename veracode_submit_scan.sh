@@ -17,7 +17,6 @@ fi
 
 # Getting a list of all our apps present in veracode and saving it as an XML
 http --auth-type=veracode_hmac "https://analysiscenter.veracode.com/api/5.0/getapplist.do" > applist.xml
-cat applist.xml
 
 # Parsing the XML for the `app_id` where `app_name == $STACK_NAME`
 export APP_ID=$( xmlstarlet sel -N oe="http&#x3a;&#x2f;&#x2f;www.w3.org&#x2f;2001&#x2f;XMLSchema-instance" -N ve="https&#x3a;&#x2f;&#x2f;analysiscenter.veracode.com&#x2f;schema&#x2f;2.0&#x2f;applist" xsi:schemaLocation="https&#x3a;&#x2f;&#x2f;analysiscenter.veracode.com&#x2f;schema&#x2f;2.0&#x2f;applist https&#x3a;&#x2f;&#x2f;analysiscenter.veracode.com&#x2f;resource&#x2f;2.0&#x2f;applist.xsd" --net -t -v '//*[@app_name="'$STACK_NAME'"]/@app_id' -n applist.xml )
